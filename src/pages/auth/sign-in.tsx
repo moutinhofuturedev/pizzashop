@@ -13,6 +13,7 @@ export const SignIn = () => {
     register,
     handleSubmit,
     formState: { isSubmitting },
+    reset,
   } = useForm<SignInForm>()
 
   const handleSignIn = async (data: SignInForm) => {
@@ -20,6 +21,8 @@ export const SignIn = () => {
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
       console.log(data)
+
+      reset()
 
       toast.success('Enviamos um link de autenticação para seu e-mail.')
     } catch (error) {
