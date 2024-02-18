@@ -32,7 +32,7 @@ export const SignUp = () => {
           onClick: () => navigate('/sign-in'),
         },
       })
-    } catch (error) {
+    } catch {
       toast.error('Erro ao cadastrar estabelecimento')
     }
   }

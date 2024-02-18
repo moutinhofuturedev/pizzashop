@@ -26,7 +26,7 @@ export const SignIn = () => {
       reset()
 
       toast.success('Enviamos um link de autenticação para seu e-mail.')
-    } catch (error) {
+    } catch {
       toast.error('Event has not been created', {
         action: {
           label: 'Reenviar',
