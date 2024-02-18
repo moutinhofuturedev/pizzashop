@@ -9,11 +9,11 @@ export const AuthLayout = () => {
           <span className="font-semibold">pizza.shop</span>
         </div>
         <footer className="text-sm">
-          Painel do parceiro &copy; pizza.shop - {new Date().getFullYear()}
+          Painel do parceiro &copy;pizza.shop - {new Date().getFullYear()}
         </footer>
       </div>
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center relative">
         <Outlet />
       </div>
     </div>
