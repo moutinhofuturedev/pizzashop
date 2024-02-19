@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 
+import { ModeToggle } from '@/components/theme/mode-toggle'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -41,9 +42,12 @@ export const SignUp = () => {
     <>
       <Helmet title="Cadastro" />
       <div className="p-8">
-        <Button variant="ghost" asChild className="absolute right-8 top-8">
+        <Button variant="ghost" asChild className="absolute left-8 top-8">
           <Link to="/sign-in">Fazer login</Link>
         </Button>
+        <div className="absolute right-8 top-8 flex items-center">
+          <ModeToggle />
+        </div>
         <div className="w-[350px] flex flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tighter">
