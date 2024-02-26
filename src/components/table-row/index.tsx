@@ -1,10 +1,28 @@
 import { Ban, Check, Search } from 'lucide-react'
+import { useState } from 'react'
+import { toast } from 'sonner'
 
-import { Button } from '../ui/button'
-import { TableCell, TableRow } from '../ui/table'
+import { Button } from '@/components/ui/button'
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card'
+import { TableCell, TableRow } from '@/components/ui/table'
 
 export const OrderTableRow = () => {
+  const [copied, setCopied] = useState(false)
   const orderId = crypto.randomUUID()
+
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText(orderId).then(() => {
+      setCopied(true)
+
+      toast.success('O identificador foi copiado com sucesso!')
+      console.log(`Id copiado ${copied}`)
+    })
+  }
+
   return (
     <>
       <TableRow>
@@ -16,7 +34,28 @@ export const OrderTableRow = () => {
         </TableCell>
 
         <TableCell className="font-mono text-xs font-medium">
-          {orderId}
+          <HoverCard closeDelay={0} openDelay={0} key={orderId}>
+            <HoverCardTrigger asChild>
+              <Button
+                onClick={handleCopyClick}
+                type="button"
+                variant="none"
+                className="p-0 cursor-pointer text-muted-foreground max-w-48 whitespace-nowrap overflow-hidden text-ellipsis flex justify-start"
+              >
+                {orderId}
+              </Button>
+            </HoverCardTrigger>
+            <HoverCardContent className="w-80" side="top">
+              <div className="flex justify-between space-x-4">
+                <div className="space-y-1">
+                  <span className="text-xs font-mono text-muted-foreground">
+                    {orderId}
+                  </span>
+                  <p className="text-sm">Clique para copiar o identificador</p>
+                </div>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
         </TableCell>
 
         <TableCell className="text-muted-foreground">15 minutos</TableCell>
