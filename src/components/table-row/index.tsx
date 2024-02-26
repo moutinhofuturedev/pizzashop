@@ -4,6 +4,7 @@ import { Button } from '../ui/button'
 import { TableCell, TableRow } from '../ui/table'
 
 export const OrderTableRow = () => {
+  const orderId = crypto.randomUUID()
   return (
     <>
       <TableRow>
@@ -15,7 +16,7 @@ export const OrderTableRow = () => {
         </TableCell>
 
         <TableCell className="font-mono text-xs font-medium">
-          bmfdfd9s098fdfdn990
+          {orderId}
         </TableCell>
 
         <TableCell className="text-muted-foreground">15 minutos</TableCell>

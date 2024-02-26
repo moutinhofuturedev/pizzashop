@@ -1,7 +1,8 @@
 import { TableHead, TableRow } from '../ui/table'
 
 export const OrderTableHeader = () => {
-  const headerTitle = [
+  const id = crypto.randomUUID()
+  const headerTitle: string[] = [
     '',
     'Identificador',
     'Realizado há',
@@ -11,11 +12,12 @@ export const OrderTableHeader = () => {
     '',
     '',
   ]
+
   return (
     <>
       <TableRow>
-        {headerTitle.map((header, i) => {
-          return <TableHead key={i}>{header}</TableHead>
+        {headerTitle.map((header) => {
+          return <TableHead key={id}>{header}</TableHead>
         })}
       </TableRow>
     </>
