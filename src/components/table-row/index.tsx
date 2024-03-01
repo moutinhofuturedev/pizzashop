@@ -2,7 +2,9 @@ import { Ban, Check, Search } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
+import { TableDetails } from '@/components/table-details'
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import {
   HoverCard,
   HoverCardContent,
@@ -27,10 +29,16 @@ export const OrderTableRow = () => {
     <>
       <TableRow>
         <TableCell>
-          <Button variant="outline" size="xs">
-            <Search className="h3 w-3" />
-            <span className="sr-only">Detalhes do pedido</span>
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="xs">
+                <Search className="h3 w-3" />
+                <span className="sr-only">Detalhes do pedido</span>
+              </Button>
+            </DialogTrigger>
+
+            <TableDetails />
+          </Dialog>
         </TableCell>
 
         <TableCell className="font-mono text-xs font-medium">
