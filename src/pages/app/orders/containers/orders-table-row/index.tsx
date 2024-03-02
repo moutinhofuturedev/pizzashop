@@ -2,7 +2,6 @@ import { Ban, Check, Search } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
-import { TableDetails } from '@/components/table-details'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import {
@@ -11,6 +10,7 @@ import {
   HoverCardTrigger,
 } from '@/components/ui/hover-card'
 import { TableCell, TableRow } from '@/components/ui/table'
+import { TableDetails } from '@/pages/app/orders/containers/orders-table-details'
 
 export const OrderTableRow = () => {
   const [copied, setCopied] = useState(false)
