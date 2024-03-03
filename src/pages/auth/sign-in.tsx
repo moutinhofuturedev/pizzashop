@@ -22,8 +22,6 @@ export const SignIn = () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
-      console.log(data)
-
       reset()
 
       toast.success('Enviamos um link de autenticação para seu e-mail.')
@@ -49,7 +47,7 @@ export const SignIn = () => {
         <div className="absolute right-8 top-8 flex items-center">
           <ModeToggle />
         </div>
-        <div className="w-[350px] flex flex-col justify-center gap-6">
+        <div className="w-[350px] flex flex-col justify-center gap-6 max-sm:px-4">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tighter">
               Acessar painel
