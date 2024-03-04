@@ -1,4 +1,11 @@
-import { Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from 'recharts'
 import colors from 'tailwindcss/colors'
 
 import {
@@ -21,7 +28,7 @@ const data: { date: string; revenue: number }[] = [
 
 export const RevenueChart = () => {
   return (
-    <Card className="col-span-6">
+    <Card className="col-span-6 max-sm:col-span-full">
       <CardHeader className="flex-row items-center justify-between pb-8">
         <div className="space-y-1">
           <CardTitle className="text-base font-medium">
@@ -44,6 +51,7 @@ export const RevenueChart = () => {
               width={80}
               stroke="#888"
               tickLine={false}
+              axisLine={false}
               tickFormatter={(value: number) =>
                 value.toLocaleString('pt-BR', {
                   style: 'currency',
@@ -51,11 +59,12 @@ export const RevenueChart = () => {
                 })
               }
             />
+            <CartesianGrid vertical={false} className="stroke-muted" />
             <Line
               type="linear"
               strokeWidth={2}
               dataKey="revenue"
-              stroke={colors.red[700]}
+              stroke={colors.blue[500]}
             />
           </LineChart>
         </ResponsiveContainer>
