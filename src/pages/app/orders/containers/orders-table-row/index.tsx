@@ -3,12 +3,14 @@ import { useState } from 'react'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card'
 import { TableCell, TableRow } from '@/components/ui/table'
+import { TableDetails } from '@/pages/app/orders/containers/orders-table-details'
 
 export const OrderTableRow = () => {
   const [copied, setCopied] = useState(false)
@@ -27,10 +29,16 @@ export const OrderTableRow = () => {
     <>
       <TableRow>
         <TableCell>
-          <Button variant="outline" size="xs">
-            <Search className="h3 w-3" />
-            <span className="sr-only">Detalhes do pedido</span>
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="xs">
+                <Search className="h3 w-3" />
+                <span className="sr-only">Detalhes do pedido</span>
+              </Button>
+            </DialogTrigger>
+
+            <TableDetails />
+          </Dialog>
         </TableCell>
 
         <TableCell className="font-mono text-xs font-medium">

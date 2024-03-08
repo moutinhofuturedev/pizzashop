@@ -1,8 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 
 import { Pagination } from '@/components/pagination'
-import { OrderTableFilters } from '@/components/table-filters'
-import { OrderTableRow } from '@/components/table-row'
 import {
   Table,
   TableBody,
@@ -10,9 +8,12 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { OrderTableFilters } from '@/pages/app/orders/containers/orders-table-filters'
+import { OrderTableRow } from '@/pages/app/orders/containers/orders-table-row'
 
 export const Orders = () => {
   const id = crypto.randomUUID()
+
   return (
     <>
       <Helmet title="Pedidos" />

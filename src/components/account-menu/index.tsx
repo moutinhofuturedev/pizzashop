@@ -18,7 +18,7 @@ export const AccountMenu = () => {
           variant="outline"
           className="flex items-center gap-2 select-none"
         >
-          Pizza Shop
+          <span className="max-sm:sr-only">Pizza Shop</span>
           <ChevronDown className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
