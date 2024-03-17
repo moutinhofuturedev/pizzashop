@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 
+import { getManagedRestaurant } from '@/api/get-managed-restaurant'
 import { Pagination } from '@/components/pagination'
 import {
   Table,
@@ -12,11 +14,15 @@ import { OrderTableFilters } from '@/pages/app/orders/containers/orders-table-fi
 import { OrderTableRow } from '@/pages/app/orders/containers/orders-table-row'
 
 export const Orders = () => {
+  const { data: managedRestaurant } = useQuery({
+    queryKey: ['managed-restaurant'],
+    queryFn: getManagedRestaurant,
+  })
   const id = crypto.randomUUID()
 
   return (
     <>
-      <Helmet title="Pedidos" />
+      <Helmet title={`Pedidos | ${managedRestaurant?.name}`} />
       <div className="flex flex-col gap-4">
         <h1 className="text-3xl font-bold tracking-tight">Pedidos</h1>
       </div>

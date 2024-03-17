@@ -1,4 +1,7 @@
+import { useQuery } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
+
+import { getManagedRestaurant } from '@/api/get-managed-restaurant'
 
 import { DaysOrdersAmountCard } from './containers/days-orders-amount-card'
 import { MonthCanceledOrdersAmountCard } from './containers/month-canceled-orders-amount-card'
@@ -8,9 +11,14 @@ import { PopularProductChart } from './containers/popular-produtcs-chart'
 import { RevenueChart } from './containers/revenue-chart'
 
 export const Dashboard = () => {
+  const { data: managedRestaurant } = useQuery({
+    queryKey: ['managed-restaurant'],
+    queryFn: getManagedRestaurant,
+  })
+
   return (
     <>
-      <Helmet title="Dashboard" />
+      <Helmet title={`Dashboard | ${managedRestaurant?.name}`} />
       <div className="flex flex-col gap-4">
         <h1>Dashboard</h1>
 
