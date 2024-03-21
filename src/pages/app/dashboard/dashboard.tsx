@@ -18,7 +18,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      <Helmet title={`Dashboard | ${managedRestaurant?.name}`} />
+      <Helmet title={`Dashboard | ${managedRestaurant?.name || 'Pizzashop'}`} />
       <div className="flex flex-col gap-4">
         <h1>Dashboard</h1>
 

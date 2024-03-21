@@ -12,7 +12,7 @@ if (env.VITE_ENABLE_API_DELAY) {
     await new Promise((resolve) => {
       setTimeout(() => {
         resolve(config)
-      }, 3000)
+      }, 2000)
     })
 
     return config

@@ -37,7 +37,7 @@ export const SignIn = () => {
 
       toast.success('Enviamos um link de autenticação para seu e-mail.')
     } catch {
-      toast.error('Event has not been created', {
+      toast.error('Erro ao realizar login', {
         action: {
           label: 'Reenviar',
           onClick: () => {
